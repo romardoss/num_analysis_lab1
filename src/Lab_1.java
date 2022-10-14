@@ -29,7 +29,7 @@ public class Lab_1 {
     }
 
     public  static int[] findMAX(double[][] m){
-        //searching for minimum element in matrix (without  last right column)
+        //searching for maximum element in matrix (without  last right column)
         double max = Double.MIN_VALUE;
         int[] index = {-1, -1};
         int n = m.length;
