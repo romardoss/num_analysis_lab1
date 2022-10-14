@@ -19,6 +19,8 @@ public class Lab_1 {
         System.out.println(Arrays.toString(x));
         swapElementsInArray(x, 2, 3);
         System.out.println(Arrays.toString(x));
+        swapRowInMatrix(matrix, 1, 2);
+        printMatrix(matrix);
     }
 
     public static void printMatrix(double[][] m){
@@ -51,17 +53,25 @@ public class Lab_1 {
     }
 
     public static void fillX(int[] x){
+        //fill x array with sequence from 1 to n (from x1 to xn)
         for(int i = 0; i < x.length; i++){
             x[i] = i+1;
         }
     }
 
     public static void swapElementsInArray(int[] x, int i, int j){
+        //swap two elements in array of integer type
         int buf = x[i];
         x[i] = x[j];
         x[j] = buf;
     }
 
-
-
+    public static void swapRowInMatrix(double[][] m, int r1, int r2){
+        //swap two rows in matrix
+        for(int i = 0; i < m.length; i++){
+            double buf = m[r1][i];
+            m[r1][i] = m[r2][i];
+            m[r2][i] = buf;
+        }
+    }
 }
