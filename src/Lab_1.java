@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Lab_1 {
     static int variant = 6;
     static double a = 0.2 * (variant - 5);
@@ -11,9 +13,11 @@ public class Lab_1 {
 
     public static void main(String[] args) {
         printMatrix(matrix);
+        System.out.println(Arrays.toString(findMAX(matrix)));
     }
 
     public static void printMatrix(double[][] m){
+        //print matrix on the screen
         int n = m.length;
         for (double[] doubles : m) {
             System.out.print("| ");
@@ -22,5 +26,22 @@ public class Lab_1 {
             }
             System.out.printf("| %.3f |\n", doubles[n]);     //last element
         }
+    }
+
+    public  static int[] findMAX(double[][] m){
+        //searching for minimum element in matrix (without  last right column)
+        double max = Double.MIN_VALUE;
+        int[] index = {-1, -1};
+        int n = m.length;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(max < m[i][j]){
+                    max = m[i][j];
+                    index[0] = i;
+                    index[1] = j;
+                }
+            }
+        }
+        return index;
     }
 }
