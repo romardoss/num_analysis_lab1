@@ -17,10 +17,13 @@ public class Lab_1 {
         System.out.println(Arrays.toString(findMAX(matrix)));
         fillX(x);
         System.out.println(Arrays.toString(x));
-        swapElementsInArray(x, 2, 3);
-        System.out.println(Arrays.toString(x));
-        swapRowInMatrix(matrix, 1, 2);
+//        swapElementsInArray(x, 2, 3);
+//        System.out.println(Arrays.toString(x));
+//        swapRowInMatrix(matrix, 1, 2);
+//        printMatrix(matrix);
+        swapColumnsInMatrix(matrix, 1, 2);
         printMatrix(matrix);
+        System.out.println(Arrays.toString(x));
     }
 
     public static void printMatrix(double[][] m){
@@ -66,12 +69,27 @@ public class Lab_1 {
         x[j] = buf;
     }
 
+    public static void swapElementsInArray(double[] x, int i, int j){
+        //swap two elements in array of double type
+        double buf = x[i];
+        x[i] = x[j];
+        x[j] = buf;
+    }
+
     public static void swapRowInMatrix(double[][] m, int r1, int r2){
         //swap two rows in matrix
         for(int i = 0; i < m.length; i++){
             double buf = m[r1][i];
             m[r1][i] = m[r2][i];
             m[r2][i] = buf;
+        }
+    }
+
+    public static void swapColumnsInMatrix(double[][] m, int c1, int c2){
+        //swap two columns in matrix
+        swapElementsInArray(x, c1, c2);
+        for (double[] doubles : m) {
+            swapElementsInArray(doubles, c1, c2);
         }
     }
 }
