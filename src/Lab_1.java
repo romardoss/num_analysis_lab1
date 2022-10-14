@@ -10,6 +10,7 @@ public class Lab_1 {
             {3.77, 7.21+a, 8.04, 2.28, 15.45-b},
             {2.21, 3.65-a, 1.69, 6.99, -8.35}
     };
+    static int[] x = new int[matrix.length];
 
     public static void main(String[] args) {
         printMatrix(matrix);
@@ -44,4 +45,11 @@ public class Lab_1 {
         }
         return index;
     }
+
+    public static void fillX(int[] x){
+        for(int i = 1; i <= x.length; i++){
+            x[i] = i;
+        }
+    }
+
 }
