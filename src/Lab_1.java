@@ -17,6 +17,8 @@ public class Lab_1 {
         System.out.println(Arrays.toString(findMAX(matrix)));
         fillX(x);
         System.out.println(Arrays.toString(x));
+        swapElementsInArray(x, 2, 3);
+        System.out.println(Arrays.toString(x));
     }
 
     public static void printMatrix(double[][] m){
@@ -53,5 +55,13 @@ public class Lab_1 {
             x[i] = i+1;
         }
     }
+
+    public static void swapElementsInArray(int[] x, int i, int j){
+        int buf = x[i];
+        x[i] = x[j];
+        x[j] = buf;
+    }
+
+
 
 }
