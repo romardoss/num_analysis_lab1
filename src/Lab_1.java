@@ -28,6 +28,7 @@ public class Lab_1 {
         //printMatrix(matrix);
         //System.out.println(Arrays.toString(x));
         makeElementEqualOne(matrix, 0);
+        makeZeros(matrix, 0, 1);
         printMatrix(matrix);
     }
 
@@ -110,12 +111,17 @@ public class Lab_1 {
         //method makes the element x (on m[row][column] position) equal 1 and other
         //elements in a row divide by x element
         int column = m[0].length - 2 - row;
-        for(int i = 0; i < m[0].length; i++){
+        for(int i = 0; i <= column; i++){
             m[row][i] /= m[row][column];
         }
     }
 
-    public static void makeZeros(double[][] m, int row){
-
+    public static void makeZeros(double[][] m, int row, int index){
+        //this method makes zeros under row
+        int column = m[0].length - 2 - row;
+        double a = m[row+index][column];
+        for(int i = 0; i <= column; i++){
+            m[row+index][i] -= m[row][i] * a;
+        }
     }
 }
