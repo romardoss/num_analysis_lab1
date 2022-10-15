@@ -24,10 +24,10 @@ public class Lab_1 {
 //        swapColumnsInMatrix(matrix, 1, 2);
 //        printMatrix(matrix);
 //        System.out.println(Arrays.toString(x));
-        replaceMax(matrix, 0, matrix[0].length-2);
+        replaceMax(matrix, 0);
         //printMatrix(matrix);
         //System.out.println(Arrays.toString(x));
-        makeElementEqualOne(matrix, 0, matrix[0].length-2);
+        makeElementEqualOne(matrix, 0);
         printMatrix(matrix);
     }
 
@@ -98,18 +98,24 @@ public class Lab_1 {
         }
     }
 
-    public static void replaceMax(double[][] m, int row, int column){
+    public static void replaceMax(double[][] m, int row){
         //replace max element to first position of matrix (submatrix if first != 0)
+        int column = m[0].length - 2 - row;
         int[] index = findMAX(m);
         swapRowInMatrix(m, row, index[0]);
         swapColumnsInMatrix(m, column, index[1]);
     }
 
-    public static void makeElementEqualOne(double[][] m, int row, int column){
+    public static void makeElementEqualOne(double[][] m, int row){
         //method makes the element x (on m[row][column] position) equal 1 and other
         //elements in a row divide by x element
+        int column = m[0].length - 2 - row;
         for(int i = 0; i < m[0].length; i++){
             m[row][i] /= m[row][column];
         }
+    }
+
+    public static void makeZeros(double[][] m, int row){
+
     }
 }
