@@ -11,27 +11,17 @@ public class Lab_1 {
             {2.21, 3.65-a, 1.69, 6.99, -8.35}
     };
     static int[] x = new int[matrix.length];
+    static double[] foundX = new double[matrix.length];
 
     public static void main(String[] args) {
         printMatrix(matrix);
-//        System.out.println(Arrays.toString(findMAX(matrix)));
         fillX(x);
         System.out.println();
-//        System.out.println(Arrays.toString(x));
-//        swapElementsInArray(x, 2, 3);
-//        System.out.println(Arrays.toString(x));
-//        swapRowInMatrix(matrix, 1, 2);
-//        printMatrix(matrix);
-//        swapColumnsInMatrix(matrix, 1, 2);
-//        printMatrix(matrix);
-//        System.out.println(Arrays.toString(x));
-//        replaceMax(matrix, 0);
-//        printMatrix(matrix);
-//        System.out.println(Arrays.toString(x));
-//        makeElementEqualOne(matrix, 0);
-//        makeZeros(matrix, 0, 1);
         controller(matrix);
         printMatrix(matrix);
+        getResults(matrix, foundX);
+        System.out.println(Arrays.toString(x));
+        System.out.println(Arrays.toString(foundX));
     }
 
     public static void printMatrix(double[][] m){
@@ -140,7 +130,18 @@ public class Lab_1 {
             for(int k = 1; k <= row-i; k++){
                 makeZeros(m, i, k);
             }
+        }
+    }
 
+    public static void getResults(double[][] m, double[] x){
+        int n = m.length;
+        for(int i = n-1; i >= 0 ; i--){
+            int index = n - 1 - i;
+            double last = m[i][m[0].length-1];     // = last element in row
+            for(int j = 0; j < n; j++){
+                last -= m[i][j] * x[j];
+            }
+            x[index] = last;
         }
     }
 }
