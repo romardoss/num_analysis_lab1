@@ -14,9 +14,10 @@ public class Lab_1 {
 
     public static void main(String[] args) {
         printMatrix(matrix);
-        System.out.println(Arrays.toString(findMAX(matrix)));
+//        System.out.println(Arrays.toString(findMAX(matrix)));
         fillX(x);
-        System.out.println(Arrays.toString(x));
+        System.out.println();
+//        System.out.println(Arrays.toString(x));
 //        swapElementsInArray(x, 2, 3);
 //        System.out.println(Arrays.toString(x));
 //        swapRowInMatrix(matrix, 1, 2);
@@ -24,11 +25,12 @@ public class Lab_1 {
 //        swapColumnsInMatrix(matrix, 1, 2);
 //        printMatrix(matrix);
 //        System.out.println(Arrays.toString(x));
-        replaceMax(matrix, 0);
-        //printMatrix(matrix);
-        //System.out.println(Arrays.toString(x));
-        makeElementEqualOne(matrix, 0);
-        makeZeros(matrix, 0, 1);
+//        replaceMax(matrix, 0);
+//        printMatrix(matrix);
+//        System.out.println(Arrays.toString(x));
+//        makeElementEqualOne(matrix, 0);
+//        makeZeros(matrix, 0, 1);
+        controller(matrix);
         printMatrix(matrix);
     }
 
@@ -123,6 +125,22 @@ public class Lab_1 {
         double a = m[row+index][column];
         for(int i = 0; i < m[0].length; i++){
             m[row+index][i] -= m[row][i] * a;
+        }
+    }
+
+    public static void controller(double[][] m){
+        //controls methods makeElementEqualOne() and makeZeros() to make triangle matrix
+        int row = m.length - 1;
+        int column = m[0].length - 2;
+
+        for(int i = 0; i <= row; i++){
+            //each row need to have at lest one element which equals 1
+            makeElementEqualOne(m, i);
+            //after that other rows must make zeroes
+            for(int k = 1; k <= row-i; k++){
+                makeZeros(m, i, k);
+            }
+
         }
     }
 }
