@@ -111,6 +111,7 @@ public class Lab_1 {
         //method makes the element x (on m[row][column] position) equal 1 and other
         //elements in a row divide by x element
         int column = m[0].length - 2 - row;
+        m[row][m[0].length-1] /= m[row][column];       //last element
         for(int i = 0; i <= column; i++){
             m[row][i] /= m[row][column];
         }
@@ -120,7 +121,7 @@ public class Lab_1 {
         //this method makes zeros under row
         int column = m[0].length - 2 - row;
         double a = m[row+index][column];
-        for(int i = 0; i <= column; i++){
+        for(int i = 0; i < m[0].length; i++){
             m[row+index][i] -= m[row][i] * a;
         }
     }
