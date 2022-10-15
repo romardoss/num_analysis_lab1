@@ -24,7 +24,7 @@ public class Lab_1 {
 //        swapColumnsInMatrix(matrix, 1, 2);
 //        printMatrix(matrix);
 //        System.out.println(Arrays.toString(x));
-        replaceMax(matrix, 0);
+        replaceMax(matrix, 0, matrix[0].length-2);
         printMatrix(matrix);
         System.out.println(Arrays.toString(x));
     }
@@ -96,10 +96,10 @@ public class Lab_1 {
         }
     }
 
-    public static void replaceMax(double[][] m, int first){
+    public static void replaceMax(double[][] m, int row, int column){
         //replace max element to first position of matrix (submatrix if first != 0)
         int[] index = findMAX(m);
-        swapRowInMatrix(m, first, index[0]);
-        swapColumnsInMatrix(m, first, index[1]);
+        swapRowInMatrix(m, row, index[0]);
+        swapColumnsInMatrix(m, column, index[1]);
     }
 }
