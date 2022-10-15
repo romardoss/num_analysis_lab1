@@ -25,8 +25,10 @@ public class Lab_1 {
 //        printMatrix(matrix);
 //        System.out.println(Arrays.toString(x));
         replaceMax(matrix, 0, matrix[0].length-2);
+        //printMatrix(matrix);
+        //System.out.println(Arrays.toString(x));
+        makeElementEqualOne(matrix, 0, matrix[0].length-2);
         printMatrix(matrix);
-        System.out.println(Arrays.toString(x));
     }
 
     public static void printMatrix(double[][] m){
@@ -101,5 +103,13 @@ public class Lab_1 {
         int[] index = findMAX(m);
         swapRowInMatrix(m, row, index[0]);
         swapColumnsInMatrix(m, column, index[1]);
+    }
+
+    public static void makeElementEqualOne(double[][] m, int row, int column){
+        //method makes the element x (on m[row][column] position) equal 1 and other
+        //elements in a row divide by x element
+        for(int i = 0; i < m[0].length; i++){
+            m[row][i] /= m[row][column];
+        }
     }
 }
