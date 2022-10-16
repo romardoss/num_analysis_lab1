@@ -14,14 +14,23 @@ public class Lab_1 {
     static double[] foundX = new double[matrix.length];
 
     public static void main(String[] args) {
-        printMatrix(matrix);
-        fillX(x);
-        System.out.println();
-        controller(matrix);
-        printMatrix(matrix);
-        getResults(matrix, foundX);
-        System.out.println(Arrays.toString(x));
-        System.out.println(Arrays.toString(foundX));
+//        printMatrix(matrix);
+//        fillX(x);
+//        System.out.println();
+//        controller(matrix);
+//        printMatrix(matrix);
+//        getResults(matrix, foundX);
+//        System.out.println(Arrays.toString(x));
+//        System.out.println(Arrays.toString(foundX));
+        System.out.println(valuable(12));
+        System.out.println(valuable(333));
+        System.out.println(valuable(4567));
+        System.out.println(valuable(9876));
+        System.out.println(valuable(1234455));
+        System.out.println(valuable(1234235341));
+        System.out.println(valuable(1.2342353423));
+        System.out.println(valuable(123.42353423));
+        System.out.println(valuable(0.0000012345678));
     }
 
     public static void printMatrix(double[][] m){
@@ -143,5 +152,33 @@ public class Lab_1 {
             }
             x[index] = last;
         }
+    }
+
+    public static String valuable(double n){
+        //printing a number with 6 valuable digits
+        int x = (int) n;        //without digits after point (.)
+        int number = Integer.toString(x).length();      //length of part before point (.)
+        int rest = 6 - number;
+        String answer = "";
+
+        if(number > 6){
+            x /= Math.pow(10, number-6);
+            answer += Integer.toString(x);
+            for(int i = number-6; i > 0; i--){
+                answer += "0";
+            }
+        }
+        else {
+            answer += Integer.toString(x);
+        }
+
+
+        if(rest > 0){
+            answer += ".";
+        }
+        n -= x;         // equals only to part after point (.)
+        n *= Math.pow(10, rest);
+        answer += Integer.toString((int) n);
+        return answer;
     }
 }
