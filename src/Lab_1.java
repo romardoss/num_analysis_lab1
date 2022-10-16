@@ -31,6 +31,8 @@ public class Lab_1 {
         System.out.println(valuable(1.2342353423));
         System.out.println(valuable(123.42353423));
         System.out.println(valuable(0.0000012345678));
+        System.out.println(valuable(0.000001234567891011));
+        System.out.println(valuable(0.01010000000));
     }
 
     public static void printMatrix(double[][] m){
@@ -165,18 +167,29 @@ public class Lab_1 {
             for(int i = number-6; i > 0; i--){
                 answer += "0";
             }
+            return answer;
         }
-        else {
+        else if(number == 6){
+            return Integer.toString(x);
+        }
+        else if(x != 0){
             answer += Integer.toString(x);
-        }
-
-
-        if(rest > 0){
             answer += ".";
+            n -= x;         // equals only to part after point (.)
+            n *= Math.pow(10, rest);
+            answer += Integer.toString((int) n);
+            return answer;
         }
-        n -= x;         // equals only to part after point (.)
-        n *= Math.pow(10, rest);
-        answer += Integer.toString((int) n);
+        else{
+            answer += "0.";
+            n *= 10;
+            while ((int) n == 0){
+                answer += "0";
+                n *= 10;
+            }
+            n *= Math.pow(10, 5);
+            answer += Integer.toString((int) n);
+        }
         return answer;
     }
 }
