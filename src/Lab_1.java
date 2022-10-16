@@ -10,12 +10,6 @@ public class Lab_1 {
             {3.77, 7.21+a, 8.04, 2.28, 15.45-b},
             {2.21, 3.65-a, 1.69, 6.99, -8.35}
     };
-//static double[][] matrix = {
-//        {5.30, 2.62+a, 4.10, 1.90, -10.65+b},
-//        {3.92, 2.45, 1.08-a, 2.46, 12.21},
-//        {32.77, 71.21+a, 8.04, 0.28, 15.45-b},
-//        {2.21, 3.65-a, 1.69, 6.99, -8.35}
-//};
     static int[] x = new int[matrix.length];
     static double[] foundX = new double[matrix.length];
 
