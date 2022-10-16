@@ -10,6 +10,12 @@ public class Lab_1 {
             {3.77, 7.21+a, 8.04, 2.28, 15.45-b},
             {2.21, 3.65-a, 1.69, 6.99, -8.35}
     };
+//static double[][] matrix = {
+//        {5.30, 2.62+a, 4.10, 1.90, -10.65+b},
+//        {3.92, 2.45, 1.08-a, 2.46, 12.21},
+//        {32.77, 71.21+a, 8.04, 0.28, 15.45-b},
+//        {2.21, 3.65-a, 1.69, 6.99, -8.35}
+//};
     static int[] x = new int[matrix.length];
     static double[] foundX = new double[matrix.length];
 
@@ -22,6 +28,7 @@ public class Lab_1 {
         getResults(matrix, foundX);
         System.out.println(Arrays.toString(x));
         System.out.println(Arrays.toString(foundX));
+        printAnswers(x, foundX);
     }
 
     public static void printMatrix(double[][] m){
@@ -46,20 +53,22 @@ public class Lab_1 {
         }
     }
 
-    public  static int[] findMAX(double[][] m){
+    public  static int[] findMAX(double[][] m, int row){
         //searching for maximum element in matrix (without  last right column)
         double max = Double.MIN_VALUE;
         int[] index = {-1, -1};
         int n = m.length;
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++){
-                if(max < m[i][j]){
+        int column = n - row;
+        for(int i = row; i < n; i++){
+            for(int j = 0; j < column; j++){
+                if(max < Math.abs(m[i][j])){
                     max = m[i][j];
                     index[0] = i;
                     index[1] = j;
                 }
             }
         }
+        System.out.println(Arrays.toString(index));
         return index;
     }
 
@@ -102,7 +111,7 @@ public class Lab_1 {
     public static void replaceMax(double[][] m, int row){
         //replace max element to first position of matrix (submatrix if first != 0)
         int column = m[0].length - 2 - row;
-        int[] index = findMAX(m);
+        int[] index = findMAX(m, row);
         swapRowInMatrix(m, row, index[0]);
         swapColumnsInMatrix(m, column, index[1]);
     }
@@ -127,11 +136,12 @@ public class Lab_1 {
     }
 
     public static void controller(double[][] m){
-        //controls methods makeElementEqualOne() and makeZeros() to make triangle matrix
+        //controls methods replaceMax(), makeElementEqualOne() and makeZeros() to make triangle matrix
         int row = m.length - 1;
         int column = m[0].length - 2;
 
         for(int i = 0; i <= row; i++){
+            replaceMax(m, i);
             //each row need to have at lest one element which equals 1
             makeElementEqualOne(m, i);
             //after that other rows must make zeroes
@@ -192,6 +202,12 @@ public class Lab_1 {
         }
         else{
             return "0.0";
+        }
+    }
+
+    public static void printAnswers(int[] x, double[] answers){
+        for (int i = 0; i < x.length; i++) {
+            System.out.println("X" + x[i] + " = " + valuable(answers[i]));
         }
     }
 }
