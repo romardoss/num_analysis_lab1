@@ -85,11 +85,9 @@ public class Lab_1 {
 
     public static void swapRowInMatrix(double[][] m, int r1, int r2){
         //swap two rows in matrix
-        for(int i = 0; i < m[0].length; i++){
-            double buf = m[r1][i];
-            m[r1][i] = m[r2][i];
-            m[r2][i] = buf;
-        }
+        double[] temp = m[r1];
+        m[r1] = m[r2];
+        m[r2] = temp;
     }
 
     public static void swapColumnsInMatrix(double[][] m, int c1, int c2){
