@@ -14,25 +14,14 @@ public class Lab_1 {
     static double[] foundX = new double[matrix.length];
 
     public static void main(String[] args) {
-//        printMatrix(matrix);
-//        fillX(x);
-//        System.out.println();
-//        controller(matrix);
-//        printMatrix(matrix);
-//        getResults(matrix, foundX);
-//        System.out.println(Arrays.toString(x));
-//        System.out.println(Arrays.toString(foundX));
-        System.out.println(valuable(12));
-        System.out.println(valuable(333));
-        System.out.println(valuable(4567));
-        System.out.println(valuable(9876));
-        System.out.println(valuable(1234455));
-        System.out.println(valuable(1234235341));
-        System.out.println(valuable(1.2342353423));
-        System.out.println(valuable(123.42353423));
-        System.out.println(valuable(0.0000012345678));
-        System.out.println(valuable(0.000001234567891011));
-        System.out.println(valuable(0.01010000000));
+        printMatrix(matrix);
+        fillX(x);
+        System.out.println();
+        controller(matrix);
+        printMatrix(matrix);
+        getResults(matrix, foundX);
+        System.out.println(Arrays.toString(x));
+        System.out.println(Arrays.toString(foundX));
     }
 
     public static void printMatrix(double[][] m){
@@ -41,9 +30,19 @@ public class Lab_1 {
         for (double[] doubles : m) {
             System.out.print("| ");
             for (int j = 0; j < n; j++) {
-                System.out.printf("%.3f ", doubles[j]);
+                if(doubles[j] >= 0){
+                    System.out.printf("%.4f ", doubles[j]);
+                }
+                else{
+                    System.out.printf("%.3f ", doubles[j]);
+                }
             }
-            System.out.printf("| %.3f |\n", doubles[n]);     //last element
+            if(doubles[n] >= 0){
+                System.out.printf("| %.4f |\n", doubles[n]);     //last element
+            }
+            else{
+                System.out.printf("| %.3f |\n", doubles[n]);
+            }
         }
     }
 
@@ -180,7 +179,7 @@ public class Lab_1 {
             answer += Integer.toString((int) n);
             return answer;
         }
-        else{
+        else if (n != 0){
             answer += "0.";
             n *= 10;
             while ((int) n == 0){
@@ -189,7 +188,10 @@ public class Lab_1 {
             }
             n *= Math.pow(10, 5);
             answer += Integer.toString((int) n);
+            return answer;
         }
-        return answer;
+        else{
+            return "0.0";
+        }
     }
 }
