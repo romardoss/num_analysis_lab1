@@ -184,8 +184,9 @@ public class Lab_1 {
             answer += Integer.toString(x);
             answer += ".";
             n -= x;         // equals only to part after point (.)
+            n = Math.abs(n);
             n *= Math.pow(10, rest);
-            answer += Integer.toString((int) Math.abs(n));
+            answer += Integer.toString((int) n);
             return answer;
         }
         else if (n != 0){
@@ -196,7 +197,8 @@ public class Lab_1 {
                 n *= 10;
             }
             n *= Math.pow(10, 5);
-            answer += Integer.toString((int) Math.abs(n));
+            n = Math.abs(n);
+            answer += Integer.toString((int) n);
             return answer;
         }
         else{
