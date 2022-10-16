@@ -68,7 +68,6 @@ public class Lab_1 {
                 }
             }
         }
-        System.out.println(Arrays.toString(index));
         return index;
     }
 
