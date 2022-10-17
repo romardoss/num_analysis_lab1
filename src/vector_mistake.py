@@ -1,3 +1,5 @@
+import math
+
 variant = 6
 a = 0.2 * (variant - 5)
 b = a
@@ -31,3 +33,12 @@ for i in range(len(A)):
         r[i] += A[i][j]*xm[j]
     r[i] = round(buf-r[i], rounded)
 print(r)
+
+# d = sqrt( 1/n * sum[k=1 -> n](xk - xmk)^2 )
+d = 0
+for i in range(len(x)):
+    d += math.pow((x[i] - xm[i]), 2)
+d /= len(x)
+d = math.sqrt(d)
+d = round(d, 10)
+print(d)
