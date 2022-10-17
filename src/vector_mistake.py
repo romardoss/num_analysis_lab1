@@ -10,7 +10,7 @@ A = [
             [2.21, 3.65-a, 1.69, 6.99]
     ]
 B = [-10.65+b, 12.21, 15.45-b, -8.35]
-rounded = 4
+rounded = 10
 
 # r = B - Ax
 x = [-4.30489, -8.39292, 11.1963, 1.60194]
@@ -21,7 +21,9 @@ for i in range(len(A)):
     for j in range(len(x)):
         r[i] += A[i][j]*x[j]
     r[i] = round(buf-r[i], rounded)
+print("Вектор нев'язки для отриманого розв'язку")
 print(r)
+print()
 
 # r = B - Axm
 xm = [-4.30489826998, -8.39292339458, 11.1963427229, 1.60194444725]
@@ -32,7 +34,9 @@ for i in range(len(A)):
     for j in range(len(x)):
         r[i] += A[i][j]*xm[j]
     r[i] = round(buf-r[i], rounded)
+print("Вектор нев'язки для отриманого розв'язку в онлайн калькуляторі")
 print(r)
+print()
 
 # d = sqrt( 1/n * sum[k=1 -> n](xk - xmk)^2 )
 d = 0
@@ -41,4 +45,5 @@ for i in range(len(x)):
 d /= len(x)
 d = math.sqrt(d)
 d = round(d, 10)
+print("Середньоквадратична похибка")
 print(d)
