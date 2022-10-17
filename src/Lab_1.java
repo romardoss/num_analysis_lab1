@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Lab_1 {
     static int variant = 6;
     static double a = 0.2 * (variant - 5);
@@ -14,14 +12,19 @@ public class Lab_1 {
     static double[] foundX = new double[matrix.length];
 
     public static void main(String[] args) {
+        System.out.println("Початкова матриця:");
         printMatrix(matrix);
         fillX(x);
         System.out.println();
+        System.out.println("Трикутна матриця");
         controller(matrix);
         printMatrix(matrix);
         getResults(matrix, foundX);
-        System.out.println(Arrays.toString(x));
-        System.out.println(Arrays.toString(foundX));
+        // Отримані значення іксів та їх порядок
+        //System.out.println(Arrays.toString(x));
+        //System.out.println(Arrays.toString(foundX));
+        System.out.println();
+        System.out.println("Знайдені відповіді:");
         printAnswers(x, foundX);
     }
 
@@ -131,7 +134,6 @@ public class Lab_1 {
     public static void controller(double[][] m){
         //controls methods replaceMax(), makeElementEqualOne() and makeZeros() to make triangle matrix
         int row = m.length - 1;
-        int column = m[0].length - 2;
 
         for(int i = 0; i <= row; i++){
             replaceMax(m, i);
@@ -159,7 +161,7 @@ public class Lab_1 {
     public static String valuable(double n){
         //printing a number with 6 valuable digits
         int x = (int) n;        //without digits after point (.)
-        int number = Integer.toString(x).length();      //length of part before point (.)
+        int number = Integer.toString(Math.abs(x)).length();      //length of part before point (.)
         int rest = 6 - number;
         String answer = "";
 
