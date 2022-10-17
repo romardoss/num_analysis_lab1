@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Lab_1 {
     static int variant = 6;
     static double a = 0.2 * (variant - 5);
@@ -21,8 +23,11 @@ public class Lab_1 {
         printMatrix(matrix);
         getResults(matrix, foundX);
         // Отримані значення іксів та їх порядок
-        //System.out.println(Arrays.toString(x));
-        //System.out.println(Arrays.toString(foundX));
+        System.out.println();
+        System.out.print("Порядок іксів: ");
+        System.out.println(Arrays.toString(x));
+        System.out.print("Повне значення іксів: ");
+        System.out.println(Arrays.toString(foundX));
         System.out.println();
         System.out.println("Знайдені відповіді:");
         printAnswers(x, foundX);
