@@ -37,19 +37,21 @@ public class Lab_1 {
         for (double[] doubles : m) {
             System.out.print("| ");
             for (int j = 0; j < n; j++) {
-                if(doubles[j] >= 0){
-                    System.out.printf("%.4f ", doubles[j]);
-                }
-                else{
-                    System.out.printf("%.3f ", doubles[j]);
-                }
+//                if(doubles[j] >= 0){
+//                    System.out.printf("%.4f ", doubles[j]);
+//                }
+//                else{
+//                    System.out.printf("%.3f ", doubles[j]);
+//                }
+                System.out.print(val(doubles[j]) + " ");
             }
-            if(doubles[n] >= 0){
-                System.out.printf("| %.4f |\n", doubles[n]);     //last element
-            }
-            else{
-                System.out.printf("| %.3f |\n", doubles[n]);
-            }
+//            if(doubles[n] >= 0){
+//                System.out.printf("| %.4f |\n", doubles[n]);     //last element
+//            }
+//            else{
+//                System.out.printf("| %.3f |\n", doubles[n]);
+//            }
+            System.out.println("| " + val(doubles[n]) + " |");
         }
     }
 
@@ -173,7 +175,13 @@ public class Lab_1 {
 
     public static String val(double n){
         String answer;
-        if ((int) n == n){
+        n *= Math.pow(10, 6);
+        n = Math.round(n);
+        n /= Math.pow(10, 6);       //відкидання зайвих чисел
+        if (n == 0){
+            return "     0";
+        }
+        else if ((int) n == n){
             answer = Integer.toString((int)n);
         }
         else{
