@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Lab_1 {
     static int variant = 6;
     static double a = 0.2 * (variant - 5);
@@ -173,53 +171,29 @@ public class Lab_1 {
         }
     }
 
-    public static String valuable(double n){
-        //printing a number with 6 valuable digits
-        int x = (int) n;        //without digits after point (.)
-        int number = Integer.toString(Math.abs(x)).length();      //length of part before point (.)
-        int rest = 6 - number;
-        String answer = "";
-
-        if(number > 6){
-            x /= Math.pow(10, number-6);
-            answer += Integer.toString(x);
-            for(int i = number-6; i > 0; i--){
-                answer += "0";
-            }
-            return answer;
-        }
-        else if(number == 6){
-            return Integer.toString(x);
-        }
-        else if(x != 0){
-            answer += Integer.toString(x);
-            answer += ".";
-            n -= x;         // equals only to part after point (.)
-            n = Math.abs(n);
-            n *= Math.pow(10, rest);
-            answer += Integer.toString((int) n);
-            return answer;
-        }
-        else if (n != 0){
-            answer += "0.";
-            n *= 10;
-            while ((int) n == 0){
-                answer += "0";
-                n *= 10;
-            }
-            n *= Math.pow(10, 5);
-            n = Math.abs(n);
-            answer += Integer.toString((int) n);
-            return answer;
+    public static String val(double n){
+        String answer;
+        if ((int) n == n){
+            answer = Integer.toString((int)n);
         }
         else{
-            return "0.0";
+            answer = Double.toString(n);
         }
+        if (answer.length() < 6){
+            int x = 6 - answer.length();
+            for (int i = 0; i < x; i++) {
+                answer = "0" + answer;
+            }
+        }
+        else if (answer.length() > 6){
+            answer = answer.substring(0, 6);
+        }
+        return answer;
     }
 
     public static void printAnswers(int[] x, double[] answers){
         for (int i = 0; i < x.length; i++) {
-            System.out.println("X" + x[i] + " = " + valuable(answers[i]));
+            System.out.println("X" + x[i] + " = " + val(answers[i]));
         }
     }
 }
