@@ -20,13 +20,7 @@ public class Lab_1 {
         System.out.println("Трикутна матриця");
         printMatrix(matrix);
         getResults(matrix, foundX);
-        // Отримані значення іксів та їх порядок
         System.out.println();
-//        System.out.print("Порядок іксів: ");
-//        System.out.println(Arrays.toString(x));
-//        System.out.print("Повне значення іксів: ");
-//        System.out.println(Arrays.toString(foundX));
-//        System.out.println();
         System.out.println("Знайдені відповіді:");
         printAnswers(x, foundX);
     }
@@ -37,20 +31,8 @@ public class Lab_1 {
         for (double[] doubles : m) {
             System.out.print("| ");
             for (int j = 0; j < n; j++) {
-//                if(doubles[j] >= 0){
-//                    System.out.printf("%.4f ", doubles[j]);
-//                }
-//                else{
-//                    System.out.printf("%.3f ", doubles[j]);
-//                }
                 System.out.print(val(doubles[j]) + " ");
             }
-//            if(doubles[n] >= 0){
-//                System.out.printf("| %.4f |\n", doubles[n]);     //last element
-//            }
-//            else{
-//                System.out.printf("| %.3f |\n", doubles[n]);
-//            }
             System.out.println("| " + val(doubles[n]) + " |");
         }
     }
