@@ -18,17 +18,17 @@ public class Lab_1 {
         printMatrix(matrix);
         fillX(x);
         System.out.println();
-        System.out.println("Трикутна матриця");
         controller(matrix);
+        System.out.println("Трикутна матриця");
         printMatrix(matrix);
         getResults(matrix, foundX);
         // Отримані значення іксів та їх порядок
         System.out.println();
-        System.out.print("Порядок іксів: ");
-        System.out.println(Arrays.toString(x));
-        System.out.print("Повне значення іксів: ");
-        System.out.println(Arrays.toString(foundX));
-        System.out.println();
+//        System.out.print("Порядок іксів: ");
+//        System.out.println(Arrays.toString(x));
+//        System.out.print("Повне значення іксів: ");
+//        System.out.println(Arrays.toString(foundX));
+//        System.out.println();
         System.out.println("Знайдені відповіді:");
         printAnswers(x, foundX);
     }
@@ -144,9 +144,19 @@ public class Lab_1 {
             replaceMax(m, i);
             //each row need to have at lest one element which equals 1
             makeElementEqualOne(m, i);
+            if(i<row){
+                System.out.println("Проміжний результат:");
+                printMatrix(m);
+                System.out.println();
+            }
             //after that other rows must make zeroes
             for(int k = 1; k <= row-i; k++){
                 makeZeros(m, i, k);
+            }
+            if(i<row){
+                System.out.println("Проміжний результат:");
+                printMatrix(m);
+                System.out.println();
             }
         }
     }
